@@ -1,0 +1,8 @@
+version: '3.8'
+services:
+    mysql-db:
+        image: mysql
+        restart: always
+        hostname: mysql-host
+        environment:
+            MYSQL_ROOT_PASSWORD: admin
