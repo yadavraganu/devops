@@ -24,3 +24,7 @@ __Docker Server(Daemon)__ : Tool that is responsible for creating images ,runnin
 `docker ps`
 - List all container created  
 `docker ps --all`
+- Create container  
+`docker create`
+- Start container  
+`docker start`
