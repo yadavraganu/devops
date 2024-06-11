@@ -28,3 +28,21 @@ __Docker Server(Daemon)__ : Tool that is responsible for creating images ,runnin
 `docker create`
 - Start container  
 `docker start`
+# docker build
+```
+# Create image with Dockerfile present in current directory
+docker build .
+
+# Create image with name/tag assigned
+docker build -t user/imagename:version .
+
+# Create image with Dockerfile present in different directory
+docker build -f ctx/Dockerfile
+docker build -f dockerfiles/Dockerfile.debug -t myapp_debug .
+docker build -f dockerfiles/Dockerfile.prod  -t myapp_prod .
+
+# Other Options
+--no-cache		Do not use cache when building the image
+--rm                    Remove intermediate containers after a successful build
+-q, --quiet		Suppress the build output and print image ID on success
+```
