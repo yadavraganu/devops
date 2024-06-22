@@ -69,4 +69,26 @@ docker volume remove mysql-data
 ```
 
  It’s recommended to use them for persisting files that you don’t need to observe or change from your host system. This method is known to have better performance than local directory bindings.
- 
+
+ # docker env variable
+ __Using Lisitng Method__  
+ ```
+version : 3
+services:
+  postgres:
+    image: 'postgres/latest'
+    environment:
+      - HOST=pghost
+      - USER=pguser
+      - PORT=5432
+```
+__Using .env File__  
+```
+version : 3
+services:
+  webapp:
+    env_file: "webapp.env"
+```
+__Using -e or -env__  
+`docker compose run -e DEBUG=1 web python console.py`  
+`docker run --env DEBUG=1 web python console.py`
