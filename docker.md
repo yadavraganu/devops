@@ -92,3 +92,22 @@ services:
 __Using -e or -env__  
 `docker compose run -e DEBUG=1 web python console.py`  
 `docker run --env DEBUG=1 web python console.py`
+# CMD VS ENTRYPOINT
+### CMD
+The CMD instruction sets the command to be executed when running a container from an image. You can specify CMD instructions using shell or exec forms:
+```
+CMD ["executable","param1","param2"] (exec form)
+CMD ["param1","param2"] (exec form, as default parameters to ENTRYPOINT)
+CMD command param1 param2 (shell form)
+```
+- There can only be one CMD instruction in a Dockerfile. If you list more than one CMD, only the last one takes effect.
+- The purpose of a CMD is to provide defaults for an executing container. These defaults can include an executable, or they can omit the executable, in which case you must specify an ENTRYPOINT instruction as well
+- If you would like your container to run the same executable every time, then you should consider using ENTRYPOINT in combination with CMD
+- If the user specifies arguments to docker run then they will override the default specified in CMD, but still use the default ENTRYPOINT
+### ENTRYPOINT
+An ENTRYPOINT allows you to configure a container that will run as an executable.
+```
+ENTRYPOINT ["executable", "param1", "param2"] (exec form)
+ENTRYPOINT command param1 param2 (shell form)
+```
+![image](https://github.com/yadavraganu/docker/assets/77580939/9399abd8-29fc-4c8a-88db-dd483a77cd2c)
