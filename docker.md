@@ -113,3 +113,10 @@ ENTRYPOINT command param1 param2 (shell form)
 ![image](https://github.com/yadavraganu/docker/assets/77580939/9399abd8-29fc-4c8a-88db-dd483a77cd2c)
 # WORKDIR
 The WORKDIR instruction sets the working directory for any RUN, CMD, ENTRYPOINT, COPY and ADD instructions that follow it in the Dockerfile. If the WORKDIR doesn't exist, it will be created even if it's not used in any subsequent Dockerfile instruction.
+
+# Docker Command List
+- __docker network ls__ - Get the list of networks created
+- __docker inspect__ - Get the details of an object like container,network etc.
+- __docker-compose build__ -
+- __docker-compose up__ -
+- __docker-compose down__ -
