@@ -134,3 +134,6 @@ The WORKDIR instruction sets the working directory for any RUN, CMD, ENTRYPOINT,
 - `docker pull redis@sha256:fb534a36ac2034a6374933467d971fbcbfa5d213805507f560d564851a720355` Pull docker images using digest
 - `docker rmi f70734b6a266 a4d3716dbb72` - Delete multiple images
 - `docker manifest inspect redis` - Inspect manifest file of redis images
+## docker run
+- `docker run -it ubuntu:latest /bin/bash` - Run a container with ubuntu image, attach it to terminal, run /bin/bash/ command
+- `docker ps` - Check running containers
