@@ -120,3 +120,14 @@ The WORKDIR instruction sets the working directory for any RUN, CMD, ENTRYPOINT,
 - __docker-compose build__ -
 - __docker-compose up__ -
 - __docker-compose down__ -
+
+
+## docker images
+- `docker images` - List all the pulled images on host
+- `docker pull redis:latest` - Pull redis image with latest tag from repo
+- `docker images --filter dangling=true` - Apply filter criteria while listing images
+- `docker search alpine` - Search alpine image on docker hub
+- `docker inspect redis:latest` - See the details of redis:latest image
+- `docker pull -a redis` - This can be used to download all images in a repository
+- `docker images --digests redis` - Used to list images with digest(checksum)
+- `docker rmi redis:latest` - Delete docker image
