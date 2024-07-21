@@ -147,3 +147,6 @@ The WORKDIR instruction sets the working directory for any RUN, CMD, ENTRYPOINT,
 - `docker volume rm` - Deletes specific volumes that are not in use
 - `docker run -v redis:/opt/redis --name redis -it redis:latest /bin/bash` - Run redis container with volume mount
 - `docker run -v ${pwd}/Test/:/opt/redis -it redis:latest /bin/bash`- Run redis container with mounting a directory from host as volume
+## Dockerfile reference
+- `ENV MY_NAME="John Doe"` - Set environment variables.
+- `WORKDIR /path/to/workdir` - This instruction sets the working directory for any RUN, CMD, ENTRYPOINT, COPY and ADD instructions that follow it in the Dockerfile. If the WORKDIR doesn't exist, it will be created even if it's not used in any subsequent Dockerfile instruction
