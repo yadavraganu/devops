@@ -1,0 +1,15 @@
+- `clear` -  To clear the terminal screen
+- `whoami` - Get the current logged in user
+- `ls` - List directory contents
+- `cat /etc/os-release` - Get the os details
+- `sudo -i` - Switch to root user
+- `pwd` - Present working directory
+- `cd /` - Switch to root directory
+# I/O Redirection
+- `command > file` - stdout written to file, overwriting if file exists
+- `command >> file` - stdout written to file, appending if file exists
+- `command < file` - input read from file
+- `command 2> file` - stderr written to file, overwriting if file exsits
+- `command 2>> file` - stderr written to file, appending if file exists
+- `command &>> file` - stderr & outpur written to file, appending if file exists
+- `command > file 2>&1` - stdout written to file, stderr written to same file descriptor
