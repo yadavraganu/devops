@@ -23,7 +23,6 @@ Kubernetes uses controllers to implement a lot of the cluster intelligence. They
 For example, if you ask for three replicas of an app, a controller will ensure three healthy replicas are running and take appropriate actions if they aren’t.
 
 Kubernetes also runs a controller manager that is responsible for spawning and managing the individual controllers.
-## The Worker Nodes
 
 ### The scheduler
 The scheduler watches the API server for new work tasks and assigns them to healthy worker nodes.
@@ -31,3 +30,22 @@ It implements the following process:
 1. Watch the API server for new tasks
 2. Identify capable nodes
 3. Assign tasks to nodes
+
+## The Worker Nodes
+
+### Kubelet
+The kubelet is the main Kubernetes agent and handles all communication with the cluster.
+It performs the following key tasks:
+- Watches the API server for new tasks
+- Instructs the appropriate runtime to execute tasks
+- Reports the status of tasks to the API server
+If a task won’t run, the kubelet reports the problem to the API server and lets the control plane decide what actions to take.
+
+### Runtime
+Every worker node has one or more runtimes for executing tasks. Most new Kubernetes clusters pre-install the containerd runtime and use it to execute
+tasks. These tasks include:
+- Pulling container images
+- Managing lifecycle operations such as starting and stopping containers
+
+# Kube-proxy
+Every worker node runs a kube-proxy service that implements cluster networking and load balances traffic to tasks running on the node.
