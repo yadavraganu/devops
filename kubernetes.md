@@ -49,3 +49,53 @@ tasks. These tasks include:
 
 # Kube-proxy
 Every worker node runs a kube-proxy service that implements cluster networking and load balances traffic to tasks running on the node.
+
+# 4: Working with Pods
+
+### Pod manifest files
+```
+kind: Pod
+apiVersion: v1
+metadata:
+  name: hello-pod
+    labels:
+    zone: prod
+    version: v1
+spec:
+  containers:
+    - name: hello-ctr
+      image: nigelpoulton/k8sbook:1.0
+      ports:
+        - containerPort: 8080
+      resources:
+        limits:
+          memory: 128Mi
+          cpu: 0.5
+```
+- kind field tells Kubernetes what type of object you’re defining.
+- apiVersion tells Kubernetes what version of the API to use when creating the object.
+- metadata section names the Pod hello-pod and gives it two labels.
+-  spec section defines details related to containers
+
+### Deploying Pods from a manifest file
+`kubectl apply -f pod.yml`
+
+### kubectl get
+- -o wide gives a few more columns but is still a single line of output
+- -o yaml gets you everything Kubernetes knows about the object  
+```
+kubectl get pods  # Get status of all running pods
+kubectl get pods hello-pod -o yaml  # Get details of specific pod
+```
+### kubectl describe
+This gives you a nicely formatted overview of an object, including lifecycle events    
+`kubectl describe pod hello-pod`
+
+### kubectl logs
+kubectl logs command to pull the logs from any container in a Pod. The basic format of the command is kubectl logs <pod>.  
+If you run the command against a multi-container Pod, you automatically get the logs from the first container in the Pod. 
+However, you can override this by using the -- container flag and specifying the name of the container you want the logs from  
+```
+kubectl logs <pod>
+kubectl logs logtest --container syncer
+```
